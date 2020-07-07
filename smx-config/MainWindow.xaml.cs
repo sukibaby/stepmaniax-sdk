@@ -296,7 +296,8 @@ namespace smx_config
                     }
                 }
             }
-            ThresholdWarningText.Visibility = ShowThresholdWarningText ? Visibility.Visible : Visibility.Hidden;
+            //Useless for pro players
+            //ThresholdWarningText.Visibility = ShowThresholdWarningText ? Visibility.Visible : Visibility.Hidden;
 
             // If a second controller has connected and we're on Both, see if we need to prompt
             // to sync configs.  We only actually need to do this if a controller just connected.
