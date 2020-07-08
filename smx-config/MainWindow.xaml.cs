@@ -37,6 +37,9 @@ namespace smx_config
                 bool shouldConfirmExit = false;
                 for(int pad = 0; pad < 2; ++pad)
                 {
+                    //Ensure that the tool set the sensor test to off before closing
+                    SMX.SMX.SetSensorTestMode(pad, SMX.SMX.SensorTestMode.Off);
+
                     SMX.SMXConfig config;
                     if(!SMX.SMX.GetConfig(pad, out config))
                         continue;
@@ -645,6 +648,14 @@ namespace smx_config
                 // Refresh the threshold sliders, in case the enabled panels were changed
                 // on the advanced tab.
                 CreateThresholdSliders();
+
+                for (int pad = 0; pad < 2; ++pad)
+                    SMX.SMX.SetSensorTestMode(pad, SMX.SMX.SensorTestMode.CalibratedValues);
+            }
+            else
+            {
+                for (int pad = 0; pad < 2; ++pad)
+                    SMX.SMX.SetSensorTestMode(pad, SMX.SMX.SensorTestMode.Off);
             }
         }
     }
