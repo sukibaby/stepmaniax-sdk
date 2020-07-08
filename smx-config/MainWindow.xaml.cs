@@ -283,7 +283,6 @@ namespace smx_config
 
             RefreshConnectedPadList(args);
             RefreshUploadPadText(args);
-            RefreshSelectedColorPicker();
 
             // If a device has connected or disconnected, refresh the displayed threshold
             // sliders.  Don't do this otherwise, or we'll do this when the sliders are
@@ -658,6 +657,10 @@ namespace smx_config
 
                 for (int pad = 0; pad < 2; ++pad)
                     SMX.SMX.SetSensorTestMode(pad, SMX.SMX.SensorTestMode.CalibratedValues);
+            }
+            else if(Main.SelectedItem == ColorTab)
+            {
+                RefreshSelectedColorPicker();
             }
             else
             {
