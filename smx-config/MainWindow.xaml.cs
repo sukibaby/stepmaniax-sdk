@@ -45,7 +45,7 @@ namespace smx_config
                     // The user can upload GIF animations and doesn't need to leave us running
                     // for them to work.  You can still use this tool to drive animations, but
                     // don't confirm exiting.
-                    if(config.masterVersion >= 4)
+                    if(config.IsNewGen())
                         continue;
 
                     // If AutoLightingUsePressedAnimations isn't set, the panel is using step
@@ -71,7 +71,6 @@ namespace smx_config
 
         bool IsThresholdSliderShown(string type)
         {
-            bool AdvancedModeEnabled = Properties.Settings.Default.AdvancedMode;
             SMX.SMXConfig config = ActivePad.GetFirstActivePadConfig();
             bool[] enabledPanels = config.GetEnabledPanels();
 
@@ -81,10 +80,10 @@ namespace smx_config
             //
             // Don't do this for custom, inner-sensors or outer-sensors.  Those are always shown in
             // advanced mode.
-            List<ThresholdSettings.PanelAndSensor> panelAndSensors = ThresholdSettings.GetControlledSensorsForSliderType(type, AdvancedModeEnabled, false);
+            List<ThresholdSettings.PanelAndSensor> panelAndSensors = ThresholdSettings.GetControlledSensorsForSliderType(type, config.HasAllPanels(), false);
             if(type == "custom-sensors" || type == "inner-sensors" || type == "outer-sensors")
             {
-                if(!AdvancedModeEnabled || !config.fsr())
+                if(!config.HasAllPanels() || !config.isFSR())
                     return false;
             }
             else
@@ -282,23 +281,6 @@ namespace smx_config
             if(args.ConnectionsChanged)
                 CreateThresholdSliders();
 
-            // Show the threshold warning explanation if any panels are showing the threshold warning icon.
-            bool ShowThresholdWarningText = false;
-            foreach(Tuple<int, SMX.SMXConfig> activePad in ActivePad.ActivePads())
-            {
-                SMX.SMXConfig config = activePad.Item2;
-                for(int panelIdx = 0; panelIdx < 9; ++panelIdx)
-                {
-                    for(int sensor = 0; sensor < 4; ++sensor)
-                    {
-                        if(config.ShowThresholdWarning(panelIdx, sensor))
-                            ShowThresholdWarningText = true;
-                    }
-                }
-            }
-            //Useless for pro players
-            //ThresholdWarningText.Visibility = ShowThresholdWarningText ? Visibility.Visible : Visibility.Hidden;
-
             // If a second controller has connected and we're on Both, see if we need to prompt
             // to sync configs.  We only actually need to do this if a controller just connected.
             if(args.ConfigurationChanged)
@@ -359,7 +341,7 @@ namespace smx_config
             {
                 SMX.SMXConfig config = activePad.Item2;
 
-                bool uploadsSupported = config.masterVersion >= 4;
+                bool uploadsSupported = config.IsNewGen();
                 LeaveRunning.Visibility = uploadsSupported ? Visibility.Collapsed : Visibility.Visible;
                 break;
             }
@@ -594,7 +576,7 @@ namespace smx_config
                 if(!SMX.SMX.GetConfig(pad, out config))
                     continue;
 
-                if(config.masterVersion >= 4)
+                if(config.IsNewGen())
                     UploadLatestGIF();
 
                 break;
