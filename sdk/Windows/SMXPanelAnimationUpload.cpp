@@ -109,7 +109,7 @@ namespace PanelLightGraphic
 }
 
 // The GIFs can use variable framerates.  The panels update at 30 FPS.
-#define FPS 30
+constexpr float FPS = 30;
 
 // Helpers for converting PanelGraphics to the packed sprite representation
 // we give to the pad.
