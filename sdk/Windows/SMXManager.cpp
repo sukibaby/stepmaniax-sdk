@@ -3,7 +3,7 @@
 #include "SMXDeviceConnection.h"
 #include "SMXDeviceSearchThreaded.h"
 #include "Helpers.h"
-
+#include <stdexcept>
 #include <windows.h>
 #include <memory>
 using namespace std;
@@ -71,8 +71,10 @@ void SMX::SMXManager::Shutdown()
 
     // Make sure we're not being called from within m_UserCallbackThread, since that'll
     // deadlock when we shut down m_UserCallbackThread.
-    if(m_UserCallbackThread.IsCurrentThread())
+    if (m_UserCallbackThread.IsCurrentThread())
+    {
         throw runtime_error("SMX::SMXManager::Shutdown must not be called from an SMX callback");
+    }
 
     // Shut down the thread we make user callbacks from.
     m_UserCallbackThread.Shutdown();
@@ -80,8 +82,10 @@ void SMX::SMXManager::Shutdown()
     // Shut down the device search thread.
     m_pSMXDeviceSearchThreaded->Shutdown();
 
-    if(m_hThread == INVALID_HANDLE_VALUE)
+    if (m_hThread == INVALID_HANDLE_VALUE)
+    {
         return;
+    }
 
     // Tell the thread to shut down, and wait for it before returning.
     m_bShutdown = true;
