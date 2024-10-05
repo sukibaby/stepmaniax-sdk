@@ -23,30 +23,33 @@ void SMXGif::GIFImage::Init(int width_, int height_)
 
 void SMXGif::GIFImage::Clear(const Color &color)
 {
-    for(int y = 0; y < height; ++y)
-        for(int x = 0; x < width; ++x)
-            get(x,y) = color;
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            get(x, y) = color;
+        }
+    }
 }
 
 void SMXGif::GIFImage::CropImage(SMXGif::GIFImage &dst, int crop_left, int crop_top, int crop_width, int crop_height) const
 {
     dst.Init(crop_width, crop_height);
 
-    for(int y = 0; y < crop_height; ++y)
-    {
-        for(int x = 0; x < crop_width; ++x)
-            dst.get(x,y) = get(x + crop_left, y + crop_top);
+    for (int y = 0; y < crop_height; ++y) {
+        for (int x = 0; x < crop_width; ++x) {
+            dst.get(x, y) = get(x + crop_left, y + crop_top);
+        }
     }
 }
 
 void SMXGif::GIFImage::Blit(SMXGif::GIFImage &src, int dst_left, int dst_top, int dst_width, int dst_height)
 {
-    for(int y = 0; y < dst_height; ++y)
-    {
-        for(int x = 0; x < dst_width; ++x)
+    for (int y = 0; y < dst_height; ++y) {
+        for (int x = 0; x < dst_width; ++x) {
             get(x + dst_left, y + dst_top) = src.get(x, y);
+        }
     }
 }
+
 bool SMXGif::GIFImage::operator==(const GIFImage &rhs) const
 {
     return
@@ -80,11 +83,14 @@ public:
         return byte1 | (byte2 << 8);
     }
 
-    void ReadBytes(string &s, int count)
+    void ReadBytes(string& s, int count)
     {
         s.clear();
-        while(count--)
+        s.reserve(count); // Reserve memory to avoid multiple allocations
+        for (int i = 0; i < count; ++i)
+        {
             s.push_back(ReadByte());
+        }
     }
 
     void skip(int bytes)
@@ -139,12 +145,12 @@ public:
         bytes_remaining = 0;
 
         // If there are any blocks past the end of data, skip them.
-        while(1)
+        while (1)
         {
             uint8_t blocksize = stream.ReadByte();
-            stream.skip(blocksize);
-            if(bytes_remaining == 0)
+            if (blocksize == 0)
                 break;
+            stream.skip(blocksize);
         }
     }
 
@@ -172,7 +178,7 @@ private:
 };
 
 
-static const int GIFBITS = 12;
+constexpr int GIFBITS = 12;
 
 string LWZDecoder::DecodeImage()
 {
@@ -206,24 +212,29 @@ string LWZDecoder::DecodeImage()
 
         if(code1 == clear)
         {
-            // Clear the dictionary and reset.
             dictionary_bits = code_bits + 1;
             next_free_slot = clear + 2;
             prev_code1 = -1;
             prev_code2 = -1;
+            dictionary.clear();
+            dictionary.resize(1 << GIFBITS);
             continue;
         }
 
         int code2;
-        if(code1 < next_free_slot)
+        if (code1 < next_free_slot)
+        {
             code2 = code1;
+        }
         else if(code1 == next_free_slot && prev_code2 != -1)
         {
             append_buffer.push_back(prev_code2);
             code2 = prev_code1;
         }
         else
+        {
             throw GIFError();
+        }
 
         // Walk through the linked list of codes in the dictionary and append.
         while(code2 >= clear + 2)
