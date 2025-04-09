@@ -1,0 +1,13 @@
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\Helpers.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\Helpers.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMX.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMX.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXConfigPacket.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXConfigPacket.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXDevice.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXDevice.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXDeviceConnection.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXDeviceConnection.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXDeviceSearch.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXDeviceSearch.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXDeviceSearchThreaded.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXDeviceSearchThreaded.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXGif.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXGif.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXHelperThread.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXHelperThread.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXManager.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXManager.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXThread.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXThread.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXPanelAnimation.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXPanelAnimation.obj
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXPanelAnimationUpload.cpp;C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\x64\Release\SMXPanelAnimationUpload.obj

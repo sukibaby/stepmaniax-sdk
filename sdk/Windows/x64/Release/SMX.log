@@ -1,0 +1,27 @@
+﻿  Updated to version 2020-04-03-01-8-gbf54158-devel
+  Helpers.cpp
+  SMX.cpp
+  SMXConfigPacket.cpp
+  SMXDevice.cpp
+  SMXDeviceConnection.cpp
+  SMXDeviceSearch.cpp
+  SMXDeviceSearchThreaded.cpp
+  SMXGif.cpp
+  SMXHelperThread.cpp
+  SMXManager.cpp
+  SMXThread.cpp
+  SMXPanelAnimation.cpp
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXGif.cpp(204,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  SMXPanelAnimationUpload.cpp
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\Helpers.cpp(130,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\Helpers.cpp(254,66): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\Helpers.cpp(258,53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXManager.cpp(196,47): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXDeviceConnection.cpp(356,85): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXDeviceConnection.cpp(410,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXDevice.cpp(363,17): warning C4189: 'fTimeBetweenConfigUpdates': local variable is initialized but not referenced
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXPanelAnimationUpload.cpp(320,27): warning C4267: '=': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\LL\Documents\GitHub\stepmaniax-sdk\sdk\Windows\SMXPanelAnimationUpload.cpp(461,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1395,5): warning MSB8012: TargetPath(C:\Users\LL\Documents\GitHub\stepmaniax-sdk\x64\Release\SMX.dll) does not match the Linker's OutputFile property value (C:\Users\LL\Documents\GitHub\stepmaniax-sdk\out\SMX.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     Creating library C:\Users\LL\Documents\GitHub\stepmaniax-sdk\x64\Release\SMX.lib and object C:\Users\LL\Documents\GitHub\stepmaniax-sdk\x64\Release\SMX.exp
+  SMX.vcxproj -> C:\Users\LL\Documents\GitHub\stepmaniax-sdk\x64\Release\SMX.dll
